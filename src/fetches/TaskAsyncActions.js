@@ -43,9 +43,6 @@ export const TaskAsyncInsert = (task) => (dispatch, getState) => {
                                 dateOfEntry
                                 dateOfSubmission
                                 dateOfFulfillment
-                                user {
-                                    id
-                                }
                             }
                         }
                     }`,
@@ -104,9 +101,6 @@ export const TaskAsyncUpdate = (task) => (dispatch, getState) => {
                         dateOfEntry
                         dateOfSubmission
                         dateOfFulfillment
-                        user {
-                            id
-                        }
                     }
                 }
             }`,
@@ -132,14 +126,16 @@ export const TaskAsyncUpdate = (task) => (dispatch, getState) => {
         .then(
             json => {
                 console.log(json)
+                console.log("task as input", task)
                 const msg = json.data.taskUpdate.msg
                 if (msg === "fail") {
                     console.log("Insert selhalo")
                 } else {
                     //mame hlasku, ze ok, musime si prebrat token (lastchange) a pouzit jej pro priste
                     const lastchange = json.data.taskUpdate.task.lastchange
-                    dispatch(TaskActions.insertTask({...task, lastchange: lastchange}))
-                    dispatch(UserActions.addTask(json.data.taskUpdate.task))
+                    const newTask = json.data.taskUpdate.task
+                    dispatch(TaskActions.updateTask(newTask))
+                    dispatch(UserActions.updateTask({newTask, user:{id:task.userId}}))
                 }
                 return json
             }

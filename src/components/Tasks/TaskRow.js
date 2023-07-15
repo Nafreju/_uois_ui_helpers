@@ -24,17 +24,16 @@ export const TaskRow = ({index, task, actions}) => {
 
     const briefDesServerChange = (value) => {
       //add mutation to change atribute
-      console.log({...task, briefDes:value})
       actions.updateTask({...task, briefDes:value})
     }
 
     return (
       <tr>
-        <th scope="row">{index + 1}</th>
+        <th scope="row">{task.id}</th>
         <td> {task.name}</td>
         <td> {formatDate(dateEntryTD)}</td>
         <td style={{color:deadline_color}}> {formatDate(dateSubmissionTD)}</td>
-        <td> <TextInput placeholder={task.briefDes} value={task.briefDes} onChange={briefDesServerChange}/></td>
+        <td> <TextInput key={task.id} placeholder={task.briefDes} value={task.briefDes} onChange={briefDesServerChange}/></td>
         <td> {task.detailedDes}</td>
         <td> <a href={task.reference} target="_blank">úkol</a></td>
 

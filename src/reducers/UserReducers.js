@@ -37,6 +37,17 @@ export const userSlice = createSlice({
             state = {}
             action.payload.map(item => state[item.id] = {...item})
             return state
+        },
+        updateTask: (state, action) => {
+            const userId = action.payload.user.id
+            const tasks = state[userId].tasks
+            const taskId = action.payload.id
+            for (let i = 0; i < tasks.length; i++) {
+                if (tasks[i].id === taskId) {
+                    tasks[i] = action.payload
+                }
+            }
+            return state
         }
         
     }
