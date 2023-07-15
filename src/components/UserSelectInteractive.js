@@ -30,7 +30,7 @@ export const UserSelectInteractive = ({actions}) => {
         <div>
             <TextInput placeholder="Zadejte jméno nebo příjmení studenta" onChange={handleInputChange} value=""/>
             {options.length > 0 && <ReactSelect options={options} placeholder={placeholder} onChange={handleSelectChange} value={null}/>}
-            {Boolean(selectedUserId) && <TasksTable userId={selectedUserId} actions={actions} users={users}/>}
+            {Boolean(selectedUserId) && <TasksTable userId={selectedUserId} actions={actions}/>}
         </div>
 
     )

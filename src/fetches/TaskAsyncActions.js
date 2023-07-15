@@ -1,30 +1,7 @@
 import { TaskPageQuery } from "queries/TaskPageQuery"
-import { TaskActions } from "reducers/TaskReducers"
 import { UserActions } from "reducers/UserReducers"
 
-export const TasksFetchHelper = (query, resultSelector, dispatch, getState) => {
-    const p = query()
-        .then(
-            response => response.json()
-        )
-        .then(
-            json => resultSelector(json)
-        )
-        .then(
-            json => dispatch(TaskActions.loadFromServer(json))
-        )
-    return p
-}
 
-
-export const TasksFetch = () => (dispatch, getState) => {
-    const tasksSelector = (json) => json.data.taskPage
-    const bodyFunc = async () => {
-        const tasksData = await TasksFetchHelper(TaskPageQuery, tasksSelector, dispatch, getState)
-        return tasksData
-    }
-    return bodyFunc()
-}
 
 export const TaskAsyncInsert = (task) => (dispatch, getState) => {
     const taskMutationJSON = (task) => {
@@ -74,9 +51,8 @@ export const TaskAsyncInsert = (task) => (dispatch, getState) => {
                     console.log("Insert selhalo")
                 } else {
                     //mame hlasku, ze ok, musime si prebrat token (lastchange) a pouzit jej pro priste
-                    const lastchange = json.data.taskInsert.task.lastchange
-                    dispatch(TaskActions.insertTask({...task, lastchange: lastchange}))
-                    dispatch(UserActions.addTask({...json.data.taskInsert.task, user:{id:task.userId}}))
+                    const newTask = json.data.taskInsert.task
+                    dispatch(UserActions.addTask({...newTask, user:{id:task.userId}}))
                 }
                 return json
             }
@@ -125,17 +101,15 @@ export const TaskAsyncUpdate = (task) => (dispatch, getState) => {
         )
         .then(
             json => {
-                console.log(json)
-                console.log("task as input", task)
+                //console.log(json)
+                //console.log("task as input", task)
                 const msg = json.data.taskUpdate.msg
                 if (msg === "fail") {
                     console.log("Insert selhalo")
                 } else {
                     //mame hlasku, ze ok, musime si prebrat token (lastchange) a pouzit jej pro priste
-                    const lastchange = json.data.taskUpdate.task.lastchange
                     const newTask = json.data.taskUpdate.task
-                    dispatch(TaskActions.updateTask(newTask))
-                    dispatch(UserActions.updateTask({newTask, user:{id:task.userId}}))
+                    dispatch(UserActions.updateTask({...newTask, user:{id:task.userId}}))
                 }
                 return json
             }

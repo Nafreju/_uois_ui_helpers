@@ -2,7 +2,6 @@ import { configureStore } from '@reduxjs/toolkit'
 
 import userReducer from '../reducers/UserReducers'
 import { Provider } from 'react-redux'
-import taskReducer from "reducers/TaskReducers"
 import groupReducer from 'reducers/GroupReducers'
 import { PartUsersFetch, UserTasksFetch } from 'fetches/UserAsyncActions'
 import { PartGroupsFetch, GroupMembershipsFetch } from 'fetches/GroupAsyncActions'
@@ -15,7 +14,6 @@ import { TaskAsyncInsert, TaskAsyncUpdate } from 'fetches/TaskAsyncActions'
 export const store = configureStore({
     reducer: {
         users : userReducer,
-        tasks : taskReducer,
         groups: groupReducer
     },
 })

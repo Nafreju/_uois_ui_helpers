@@ -39,14 +39,18 @@ export const userSlice = createSlice({
             return state
         },
         updateTask: (state, action) => {
+            console.log("inside reducer", action.payload)
             const userId = action.payload.user.id
             const tasks = state[userId].tasks
             const taskId = action.payload.id
-            for (let i = 0; i < tasks.length; i++) {
-                if (tasks[i].id === taskId) {
-                    tasks[i] = action.payload
+
+            const newTasks= tasks.map((task, index) => {
+                if (task.id === taskId) {
+                    return action.payload
                 }
-            }
+                return task
+            })
+            state[userId].tasks = newTasks
             return state
         }
         
