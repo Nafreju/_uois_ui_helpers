@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { UserSelectInteractive } from "./UserSelectInteractive"
-import {actions } from "../utils/store"
+import { actions } from "../utils/store"
 import { GroupSelectInteractive } from "./GroupSelectInteractive"
 
 export const Presences = () => {

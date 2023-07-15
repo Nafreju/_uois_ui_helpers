@@ -1,7 +1,5 @@
-import { useSelector } from "react-redux"
 import { useEffect } from "react"
 import { TasksTable } from "./Tasks/TasksTable"
-import { actions } from "utils/store"
 import { GroupTaskInputModal } from "components/GroupTaskInputModal"
 import { useState } from "react"
 

@@ -46,7 +46,7 @@ export const TaskActiveInputs = ({setTask, task}) => {
                 </div>
 
                 <div style={dateStyle}>
-                    <TaskDateInput ninfo="Datum naplnění:" onDateChange={onDateofFulfillmentChange}/>
+                    <TaskDateInput info="Datum naplnění:" onDateChange={onDateofFulfillmentChange}/>
                 </div>      
             </div>
         </div>

@@ -1,14 +1,8 @@
 import { TaskRow } from "./TaskRow"
-import { Card, Stack } from "react-bootstrap"
-import { CardGroup } from "react-bootstrap";
-import { Assignments } from "../../stories/DataStructures"
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { UserTaskInputModal } from "components/UserTaskInputModal";
 import { TaskTableHeader } from "./TaskTableHeader";
-
-//const array = Assignments.all
-//multiplecard
 
 
 export const TasksTable = ({userId, actions}) => {
