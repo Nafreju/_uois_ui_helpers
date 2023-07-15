@@ -34,7 +34,7 @@ export const TaskActiveInputs = ({setTask, task, actions}) => {
         setTask({...task, dateOfSubmission:newSubDate})
       }
     
-      const onDateOfFulfillmentChange = (newFulDate) => {
+      const onDateofFulfillmentChange = (newFulDate) => {
         setTask({... task, dateOfFulfillment:newFulDate})
       }
       //add actions, onTaskNameChange
@@ -53,7 +53,7 @@ export const TaskActiveInputs = ({setTask, task, actions}) => {
             </div>
 
             <div style={dateStyle}>
-                <TaskDateFulfillmentInput name="Datum naplnění:" onDateofFulfillmentChange={onDateOfFulfillmentChange}/>
+                <TaskDateFulfillmentInput name="Datum naplnění:" onDateofFulfillmentChange={onDateofFulfillmentChange}/>
                 </div>      
             </div>
         </div>

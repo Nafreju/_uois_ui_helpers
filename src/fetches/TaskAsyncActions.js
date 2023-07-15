@@ -63,16 +63,14 @@ export const TaskAsyncInsert = (task) => (dispatch, getState) => {
         body: JSON.stringify(taskMutationJSON(task))
     }
 
+
     return fetch('/api/gql', params)
     //return authorizedFetch('/api/gql', params)
         .then(
-            resp => {
-                resp.json()
-            }
+            resp => resp.json()
         )
         .then(
             json => {
-                console.log(json)
                 const msg = json.data.taskInsert.msg
                 if (msg === "fail") {
                     console.log("Insert selhalo")

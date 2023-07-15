@@ -9,7 +9,7 @@ export const TaskBriefDescriptionInput = ({name, onBriefDescChange}) => {
         
           <div className="form-group">
             <small className="form-text text-muted">Zadejte {name}</small>
-            <input type="text" className="form-control"  placeholder="stručný popis úkolu" onChange={handleChange}/>
+            <input type="text" className="form-control"  placeholder="úplný popis úkolu" onChange={handleChange}/>
           </div>
     
     )

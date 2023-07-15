@@ -17,7 +17,7 @@ export const GroupTaskInputModal = ({showModal, setModal, group, actions}) => {
         setModal(false)
         setNewTask()
     }
-    console.log("should have it", newTask)
+
     return (
         <div>
         <Modal show={showModal} onHide={handleClose}>

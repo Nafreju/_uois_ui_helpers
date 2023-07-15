@@ -7,7 +7,6 @@ export const ButtonAddTask = ({task, actions}) => {
     const [taskStored, setTaskStored] = useState(false)
 
     const saveTask = () => {
-        console.log("this sending", task)
         actions.addTask(task)
         setTaskStored(true)
     }
