@@ -12,7 +12,7 @@ export const GroupTasks = ({groupId, actions, groups}) => {
             actions.groupMembershipsFetch(groupId)
         }, [groupId]
     )
-
+    const memberships = groups[groupId]?.memberships
     const group = groups[groupId]
     //showModalhook and taskinput modal but different modal 
     //here comes the button to add Task into whole group
@@ -25,10 +25,10 @@ export const GroupTasks = ({groupId, actions, groups}) => {
         <div>
             {Boolean(group) && <button type="button" className="btn btn-outline-success btn-sm" onClick={addTask}>přidejte úkol skupině {groups[groupId]?.name}</button>}
                                 
-            {group?.memberships?.map(
+            {memberships?.map(
                 (m, index) => <TasksTable key={index} userId={m.user.id} actions={actions}/>
             )}
-            <GroupTaskInputModal showModal={showModal} 
+            <GroupTaskInputModal showModal={showModal} memberships={memberships} 
                 setModal={setShowModal} group={group} actions={actions}/>
         </div>
     )
