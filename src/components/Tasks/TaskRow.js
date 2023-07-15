@@ -8,7 +8,7 @@ function formatDate(date) {
 
   return `${day}.${month}.${year}`;
 }
-export const TaskRow = ({index, task, actions}) => {
+export const TaskRow = ({task, actions}) => {
     const today = new Date().getTime();
     
     const dateEntryTD = new Date(task.dateOfEntry);
@@ -18,7 +18,6 @@ export const TaskRow = ({index, task, actions}) => {
       // deadline in the future
       deadline_color = "green";
     }
-    console.log("row rendered", index)
     // Creating a row layout
     //<td> {briefDesc}</td>
 
@@ -35,7 +34,7 @@ export const TaskRow = ({index, task, actions}) => {
         <td style={{color:deadline_color}}> {formatDate(dateSubmissionTD)}</td>
         <td> <TextInput key={task.id} placeholder={task.briefDes} value={task.briefDes} onChange={briefDesServerChange}/></td>
         <td> {task.detailedDes}</td>
-        <td> <a href={task.reference} target="_blank">úkol</a></td>
+        <td> <a href={task.reference} target="_blank">{task.reference}</a></td>
 
       </tr>
 

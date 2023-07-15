@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { Button, Modal, ModalHeader } from 'react-bootstrap';
 import { UserTaskInputs } from './UserTaskInputs';
 import { ButtonAddTask } from './ButtonAddTask';
-import { currentDate } from 'utils/dateFormater';
-import { defaultTask } from 'utils/defaultTask';
 
 
 
 export const UserTaskInputModal = ({showModal, setModal, user, actions}) => {
-  const [newTask, setNewTask] = useState(defaultTask(user))
+  const [newTask, setNewTask] = useState({userId:user.id})
 
   const handleClose = () => {
     setModal(false)
-    setNewTask(defaultTask(user))
+    setNewTask({userId:user.id})
   };
 
 
@@ -20,9 +18,7 @@ export const UserTaskInputModal = ({showModal, setModal, user, actions}) => {
   return (
     <div>
       <Modal show={showModal} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Vytvořte úkol</Modal.Title>
-        </Modal.Header>
+        <ModalHeader />
         <Modal.Body>
           <UserTaskInputs user={user} setTask={setNewTask} task={newTask}/>
         </Modal.Body>

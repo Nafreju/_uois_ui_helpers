@@ -1,4 +1,4 @@
-import { TaskDummyInput } from "./Tasks/TaskDummyInput";
+import { TaskDummyInput } from "./DummyInput";
 import { TaskActiveInputs } from "./Tasks/TaskActiveInputs";
 import { UserDummyInput } from "./Tasks/UserDummyInput";
 

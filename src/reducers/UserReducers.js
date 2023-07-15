@@ -5,26 +5,11 @@ export const userSlice = createSlice({
     name: "users",
     initialState: {},
     reducers: {
-        addUser: (state, action) => {
-            const task = action.payload
-            state.push(task)
-            return state
-        },
-        deleteUser: (state, action) => {
-            const task = action.payload
-            const newState = state.filter(i => i.id !== task.id)
-            return newState
-        },
         updateUser: (state, action) => {
             const newItem = action.payload;
             const oldItem = state[newItem.id]
             state[newItem.id] = {...oldItem, ...newItem}
             
-            return state
-        },
-        loadFromServer: (state, action) => {
-            console.log(action.payload)
-            action.payload.map(item => state[item.id] = {...item})
             return state
         },
         addTask: (state, action) => {
@@ -39,7 +24,6 @@ export const userSlice = createSlice({
             return state
         },
         updateTask: (state, action) => {
-            console.log("inside reducer", action.payload)
             const userId = action.payload.user.id
             const tasks = state[userId].tasks
             const taskId = action.payload.id
@@ -53,7 +37,6 @@ export const userSlice = createSlice({
             state[userId].tasks = newTasks
             return state
         }
-        
     }
 })
 

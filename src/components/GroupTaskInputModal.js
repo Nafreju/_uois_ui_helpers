@@ -1,24 +1,20 @@
 import { useState } from "react"
 import { GroupTaskInputs } from "./GroupTaskInputs"
-import { Button, Modal } from 'react-bootstrap';
+import { Button, Modal, ModalHeader } from 'react-bootstrap';
 import { ButtonAddTasks } from "./ButtonAddTasks";
-import { currentDate } from "utils/dateFormater";
-import { defaultTask } from "utils/defaultTask";
 
 export const GroupTaskInputModal = ({showModal, setModal, group, actions}) => {
-  const [newTask, setNewTask] = useState(defaultTask(null))
+  const [newTask, setNewTask] = useState()
 
     const handleClose = () => {
         setModal(false)
-        setNewTask(defaultTask(null))
+        setNewTask()
     }
 
     return (
         <div>
         <Modal show={showModal} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Vytvořte úkol</Modal.Title>
-          </Modal.Header>
+          <ModalHeader />
           <Modal.Body>
             <GroupTaskInputs group={group} setTask={setNewTask} task={newTask}/>
           </Modal.Body>

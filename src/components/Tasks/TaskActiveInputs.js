@@ -1,59 +1,52 @@
-import { TaskNameInput } from "./TaskNameInput"
-import { TaskBriefDescriptionInput } from "./TaskBriefDescriptionInput"
-import { TaskDetailedDescriptionInput } from "./TaskDetailedDescriptionInput"
-import { TaskReferenceInput } from "./TaskReferenceInput"
-import { TaskDateFulfillmentInput } from "./TaskDateFulfillmentInput"
-import { TaskDateSubmissionInput } from "./TaskDateSubmissionInput"
+
+import { TaskDateInput } from "./TaskDateInput"
+import { TaskStringInput } from "./TaskStringInput"
 
 
 const dateStyle = {
     flex: 1,
     backgroundColor: 'lightblue',
   }
-  //eveeeeennnnts do commit
-  //rename callbacks onNameChange
-export const TaskActiveInputs = ({setTask, task, actions}) => {  
-  //callbacks
+
+export const TaskActiveInputs = ({setTask, task}) => {  
     const onNameChange = (newName) => {
-        setTask({...task, name:newName})                 
-      }
+      setTask({...task, name:newName})                 
+    }
+  
+    const onBriefDescChange = (newBriefDesc) => {
+      setTask({...task, briefDes:newBriefDesc})
+    }
+  
+    const onDetailedDescChange = (newDetailedDesc) => {
+      setTask({...task, detailedDes:newDetailedDesc})
+    }
+  
+    const onReferenceChange = (newReference) => {
+      setTask({...task, reference:newReference})
+    }
+  
+    const onDateOfSubmissionChange = (newSubDate) => {
+      setTask({...task, dateOfSubmission:newSubDate})
+    }
+  
+    const onDateofFulfillmentChange = (newFulDate) => {
+      setTask({... task, dateOfFulfillment:newFulDate})
+    }
     
-      const onBriefDescChange = (newBriefDesc) => {
-        setTask({...task, briefDes:newBriefDesc})
-      }
-    
-      const onDetailedDescChange = (newDetailedDesc) => {
-        setTask({...task, detailedDes:newDetailedDesc})
-      }
-    
-      const onReferenceChange = (newReference) => {
-        setTask({...task, reference:newReference})
-      }
-    
-      const onDateOfSubmissionChange = (newSubDate) => {
-        setTask({...task, dateOfSubmission:newSubDate})
-      }
-    
-      const onDateofFulfillmentChange = (newFulDate) => {
-        setTask({... task, dateOfFulfillment:newFulDate})
-      }
-      //add actions, onTaskNameChange
     return (
         <div>
-            <TaskNameInput name="název úkolu" onNameChange={onNameChange} task={task} />
-            <TaskBriefDescriptionInput name="stručný popis úkolu" onBriefDescChange={onBriefDescChange}/>
-
-            <TaskDetailedDescriptionInput name="úplný popis úkolu" onDetailedDescChange={onDetailedDescChange}/>
-
-            <TaskReferenceInput name="odkaz na stránku" onReferenceChange={onReferenceChange}/>
+            <TaskStringInput info="název úkolu" onStringChange={onNameChange}/>
+            <TaskStringInput info="stručný popis úkolu" onStringChange={onBriefDescChange}/>
+            <TaskStringInput info="úplný popis úkolu" onStringChange={onDetailedDescChange}/>
+            <TaskStringInput info="odkaz na stránku" onStringChange={onReferenceChange}/>
 
             <div style={{display: 'flex'}}>
-            <div style={dateStyle}>
-                <TaskDateSubmissionInput name="Datum odevzdání:" onDateOfSubmissionChange={onDateOfSubmissionChange}/>
-            </div>
+                <div style={dateStyle}>
+                    <TaskDateInput info="Datum odevzdání:" onDateChange={onDateOfSubmissionChange}/>
+                </div>
 
-            <div style={dateStyle}>
-                <TaskDateFulfillmentInput name="Datum naplnění:" onDateofFulfillmentChange={onDateofFulfillmentChange}/>
+                <div style={dateStyle}>
+                    <TaskDateInput ninfo="Datum naplnění:" onDateChange={onDateofFulfillmentChange}/>
                 </div>      
             </div>
         </div>

@@ -21,7 +21,7 @@ export const UserSelectInteractive = ({actions}) => {
     let options = []
     if (users) {
         options = Object.entries(users).map(user => ({
-            label: user[1].name + " " + user[1].surname + " " + user[1].email, value: user[1].id
+            label: `${user[1].name} ${user[1].surname} ${user[1].email}`, value: user[1].id
         }))
     }
 

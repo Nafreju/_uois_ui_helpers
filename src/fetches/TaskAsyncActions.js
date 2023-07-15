@@ -1,4 +1,3 @@
-import { TaskPageQuery } from "queries/TaskPageQuery"
 import { UserActions } from "reducers/UserReducers"
 
 
@@ -6,7 +5,7 @@ import { UserActions } from "reducers/UserReducers"
 export const TaskAsyncInsert = (task) => (dispatch, getState) => {
     const taskMutationJSON = (task) => {
         return {
-            query: `mutation ($userId: ID!, $name: String!, $briefDes: String!, $detailedDes: String!, $reference: String!, $dateOfSubmission: DateTime!, $dateOfFulfillment: DateTime!) {
+            query: `mutation ($userId: ID!, $name: String!, $briefDes: String, $detailedDes: String, $reference: String, $dateOfSubmission: DateTime, $dateOfFulfillment: DateTime) {
                         taskInsert(task: {userId: $userId, name: $name, briefDes: $briefDes, detailedDes: $detailedDes, reference: $reference, dateOfSubmission: $dateOfSubmission, dateOfFulfillment: $dateOfFulfillment}) {
                             id
                             msg
@@ -45,7 +44,6 @@ export const TaskAsyncInsert = (task) => (dispatch, getState) => {
         )
         .then(
             json => {
-                console.log("task is here", task)
                 const msg = json.data.taskInsert.msg
                 if (msg === "fail") {
                     console.log("Insert selhalo")
@@ -63,7 +61,7 @@ export const TaskAsyncInsert = (task) => (dispatch, getState) => {
 export const TaskAsyncUpdate = (task) => (dispatch, getState) => {
     const taskMutationJSON = (task) => {
         return {
-            query: `mutation ($id: ID!, $name: String!, $briefDes: String!, $detailedDes: String!, $reference: String!, $dateOfSubmission: DateTime!, $dateOfFulfillment: DateTime!, $lastchange: DateTime!) {
+            query: `mutation ($id: ID!, $name: String, $briefDes: String, $detailedDes: String, $reference: String, $dateOfSubmission: DateTime, $dateOfFulfillment: DateTime, $lastchange: DateTime!) {
                 taskUpdate(task: {id: $id, name: $name, briefDes: $briefDes, detailedDes: $detailedDes, reference: $reference, dateOfSubmission: $dateOfSubmission, dateOfFulfillment: $dateOfFulfillment, lastchange: $lastchange}) {
                     id
                     msg
@@ -93,7 +91,6 @@ export const TaskAsyncUpdate = (task) => (dispatch, getState) => {
         body: JSON.stringify(taskMutationJSON(task))
     }
 
-
     return fetch('/api/gql', params)
     //return authorizedFetch('/api/gql', params)
         .then(
@@ -101,8 +98,6 @@ export const TaskAsyncUpdate = (task) => (dispatch, getState) => {
         )
         .then(
             json => {
-                //console.log(json)
-                //console.log("task as input", task)
                 const msg = json.data.taskUpdate.msg
                 if (msg === "fail") {
                     console.log("Insert selhalo")
@@ -116,41 +111,3 @@ export const TaskAsyncUpdate = (task) => (dispatch, getState) => {
         ) 
 }
 
-
-/*
-mutation {
-
-  taskInsert(task: {
-    userId: "2d9dc9a8-a4a2-11ed-b9df-0242ac120003"
-    name: "mujnovejtask"
-    briefDes: "nove brief"
-    detailedDes: "nove deta"
-    reference:"nove ref"
-    dateOfEntry: "2023-05-30T05:59:32.689363"
-    dateOfSubmission:"2023-05-30T05:59:32.689363"
-    dateOfFulfillment: "2023-05-30T05:59:32.689363"
-  }){
-    id
-    msg
-    task {
-      id
-      lastchange
-      name
-      briefDesc
-      detailedDesc
-      reference
-      dateOfEntry
-      dateOfSubmission
-      dateOfFulfillment
-      event {
-        id
-      }
-      user {
-        id
-        name
-      }
-    }
-  }
-}
-tohle vrátí event a user null... proč? k čemu bych měl do parametrů query dávat event id a user id a co reprezentují?
-*/

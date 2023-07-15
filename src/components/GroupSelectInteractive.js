@@ -2,7 +2,7 @@ import { useSelector } from "react-redux"
 import { TextInput } from "./TextInput"
 import { useState } from "react"
 import ReactSelect from 'react-select';
-import { GroupTasks } from "./Tasks/GroupTasks";
+import { GroupTasks } from "./GroupTasks";
 
 export const GroupSelectInteractive = ({actions}) => {
     const groups = useSelector(state => state.groups)
