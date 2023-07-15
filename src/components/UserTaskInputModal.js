@@ -2,17 +2,19 @@ import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { UserTaskInputs } from './UserTaskInputs';
 import { ButtonAddTask } from './ButtonAddTask';
+import { currentDate } from 'utils/dateFormater';
 
 
 
 export const UserTaskInputModal = ({showModal, setModal, user, actions}) => {
   const [newTask, setNewTask] = useState({userId:user.id,
     briefDes:"",
-    dateOfSubmission: new Date(),
-    dateOfFulfillment: new Date(),
     detailedDes: "",
-    reference: ""
+    dateOfSubmission:currentDate(),
+    dateOfFulfillment:currentDate(),
+    reference:""
   })
+
   const handleClose = () => {
     setModal(false)
     setNewTask({userId:user.id})

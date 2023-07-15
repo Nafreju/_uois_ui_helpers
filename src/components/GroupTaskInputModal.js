@@ -2,16 +2,16 @@ import { useState } from "react"
 import { GroupTaskInputs } from "./GroupTaskInputs"
 import { Button, Modal } from 'react-bootstrap';
 import { ButtonAddTasks } from "./ButtonAddTasks";
+import { currentDate } from "utils/dateFormater";
 
 export const GroupTaskInputModal = ({showModal, setModal, group, actions}) => {
-  //set all atributes to default empty values probably
-    const [newTask, setNewTask] = useState({
-      briefDes:"",
-      dateOfSubmission: new Date(),
-      dateOfFulfillment: new Date(),
-      detailedDes: "",
-      reference: ""
-    })
+  const [newTask, setNewTask] = useState({
+    briefDes:"",
+    detailedDes: "",
+    dateOfSubmission:currentDate(),
+    dateOfFulfillment:currentDate(),
+    reference:""
+  })
 
     const handleClose = () => {
         setModal(false)
