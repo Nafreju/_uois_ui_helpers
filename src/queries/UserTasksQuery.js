@@ -12,8 +12,8 @@ export const UserTasksQueryJSON = (userId) => ({
                     id
                     lastchange
                     name
-                    briefDesc
-                    detailedDesc
+                    briefDes
+                    detailedDes
                     reference
                     dateOfEntry
                     dateOfSubmission

@@ -37,8 +37,8 @@ export const TaskAsyncInsert = (task) => (dispatch, getState) => {
                                 id
                                 lastchange
                                 name
-                                briefDesc
-                                detailedDesc
+                                briefDes
+                                detailedDes
                                 reference
                                 dateOfEntry
                                 dateOfSubmission
@@ -79,7 +79,7 @@ export const TaskAsyncInsert = (task) => (dispatch, getState) => {
                     //mame hlasku, ze ok, musime si prebrat token (lastchange) a pouzit jej pro priste
                     const lastchange = json.data.taskInsert.task.lastchange
                     dispatch(TaskActions.insertTask({...task, lastchange: lastchange}))
-                    dispatch(UserActions.addTask(json.data.taskInsert.task))
+                    dispatch(UserActions.addTask({...json.data.taskInsert.task, user:{id:task.userId}}))
                 }
                 return json
             }
@@ -98,8 +98,8 @@ export const TaskAsyncUpdate = (task) => (dispatch, getState) => {
                         id
                         lastchange
                         name
-                        briefDesc
-                        detailedDesc
+                        briefDes
+                        detailedDes
                         reference
                         dateOfEntry
                         dateOfSubmission

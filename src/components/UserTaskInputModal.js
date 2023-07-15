@@ -3,21 +3,16 @@ import { Button, Modal } from 'react-bootstrap';
 import { UserTaskInputs } from './UserTaskInputs';
 import { ButtonAddTask } from './ButtonAddTask';
 import { currentDate } from 'utils/dateFormater';
+import { defaultTask } from 'utils/defaultTask';
 
 
 
 export const UserTaskInputModal = ({showModal, setModal, user, actions}) => {
-  const [newTask, setNewTask] = useState({userId:user.id,
-    briefDes:"",
-    detailedDes: "",
-    dateOfSubmission:currentDate(),
-    dateOfFulfillment:currentDate(),
-    reference:""
-  })
+  const [newTask, setNewTask] = useState(defaultTask(user))
 
   const handleClose = () => {
     setModal(false)
-    setNewTask({userId:user.id})
+    setNewTask(defaultTask(user))
   };
 
 

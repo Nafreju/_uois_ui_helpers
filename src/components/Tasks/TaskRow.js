@@ -34,8 +34,8 @@ export const TaskRow = ({index, task, actions}) => {
         <td> {task.name}</td>
         <td> {formatDate(dateEntryTD)}</td>
         <td style={{color:deadline_color}}> {formatDate(dateSubmissionTD)}</td>
-        <td> <TextInput placeholder={task.briefDesc} value={task.briefDesc} onChange={briefDesServerChange}/></td>
-        <td> {task.detailedDesc}</td>
+        <td> <TextInput placeholder={task.briefDes} value={task.briefDes} onChange={briefDesServerChange}/></td>
+        <td> {task.detailedDes}</td>
         <td> <a href={task.reference} target="_blank">úkol</a></td>
 
       </tr>
