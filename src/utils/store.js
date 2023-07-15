@@ -6,7 +6,7 @@ import taskReducer from "reducers/TaskReducers"
 import groupReducer from 'reducers/GroupReducers'
 import { PartUsersFetch, UserTasksFetch } from 'fetches/UserAsyncActions'
 import { PartGroupsFetch, GroupMembershipsFetch } from 'fetches/GroupAsyncActions'
-import { TaskAsyncInsert } from 'fetches/TaskAsyncActions'
+import { TaskAsyncInsert, TaskAsyncUpdate } from 'fetches/TaskAsyncActions'
 
 
 
@@ -33,7 +33,8 @@ export const actions = {
         group?.memberships.map(member => (
             dispatch(TaskAsyncInsert({...task, userId:member.user.id}))
         ))
-    }
+    },
+    updateTask: (task) => dispatch(TaskAsyncUpdate(task))
 }
 
 

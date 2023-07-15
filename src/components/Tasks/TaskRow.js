@@ -1,3 +1,4 @@
+import { TextInput } from "components/TextInput";
 import { Card, Row, Table } from "react-bootstrap"
 
 function formatDate(date) {
@@ -7,11 +8,11 @@ function formatDate(date) {
 
   return `${day}.${month}.${year}`;
 }
-export const TaskRow = ({index, name, detailedDesc, reference, dateOfEntry, dateOfSubmission, briefDesc, id }) => {
+export const TaskRow = ({index, task, actions}) => {
     const today = new Date().getTime();
     
-    const dateEntryTD = new Date(dateOfEntry);
-    const dateSubmissionTD = new Date(dateOfSubmission);
+    const dateEntryTD = new Date(task.dateOfEntry);
+    const dateSubmissionTD = new Date(task.dateOfSubmission);
     let deadline_color = "red";
     if (today < dateSubmissionTD) {
       // deadline in the future
@@ -19,15 +20,23 @@ export const TaskRow = ({index, name, detailedDesc, reference, dateOfEntry, date
     }
     console.log("row rendered", index)
     // Creating a row layout
+    //<td> {briefDesc}</td>
+
+    const briefDesServerChange = (value) => {
+      //add mutation to change atribute
+      console.log({...task, briefDes:value})
+      actions.updateTask({...task, briefDes:value})
+    }
+
     return (
       <tr>
         <th scope="row">{index + 1}</th>
-        <td> {name}</td>
+        <td> {task.name}</td>
         <td> {formatDate(dateEntryTD)}</td>
         <td style={{color:deadline_color}}> {formatDate(dateSubmissionTD)}</td>
-        <td> {briefDesc}</td>
-        <td> {detailedDesc}</td>
-        <td> <a href={reference} target="_blank">úkol</a></td>
+        <td> <TextInput placeholder={task.briefDesc} value={task.briefDesc} onChange={briefDesServerChange}/></td>
+        <td> {task.detailedDesc}</td>
+        <td> <a href={task.reference} target="_blank">úkol</a></td>
 
       </tr>
 

@@ -71,6 +71,7 @@ export const TaskAsyncInsert = (task) => (dispatch, getState) => {
         )
         .then(
             json => {
+                console.log("task is here", task)
                 const msg = json.data.taskInsert.msg
                 if (msg === "fail") {
                     console.log("Insert selhalo")
@@ -83,6 +84,66 @@ export const TaskAsyncInsert = (task) => (dispatch, getState) => {
                 return json
             }
         )   
+}
+
+
+export const TaskAsyncUpdate = (task) => (dispatch, getState) => {
+    const taskMutationJSON = (task) => {
+        return {
+            query: `mutation ($id: ID!, $name: String!, $briefDes: String!, $detailedDes: String!, $reference: String!, $dateOfSubmission: DateTime!, $dateOfFulfillment: DateTime!, $lastchange: DateTime!) {
+                taskUpdate(task: {id: $id, name: $name, briefDes: $briefDes, detailedDes: $detailedDes, reference: $reference, dateOfSubmission: $dateOfSubmission, dateOfFulfillment: $dateOfFulfillment, lastchange: $lastchange}) {
+                    id
+                    msg
+                    task {
+                        id
+                        lastchange
+                        name
+                        briefDesc
+                        detailedDesc
+                        reference
+                        dateOfEntry
+                        dateOfSubmission
+                        dateOfFulfillment
+                        user {
+                            id
+                        }
+                    }
+                }
+            }`,
+            variables: task
+        }
+    }
+    const params = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        redirect: 'follow', // manual, *follow, error
+        body: JSON.stringify(taskMutationJSON(task))
+    }
+
+
+    return fetch('/api/gql', params)
+    //return authorizedFetch('/api/gql', params)
+        .then(
+            resp => resp.json()
+        )
+        .then(
+            json => {
+                console.log(json)
+                const msg = json.data.taskUpdate.msg
+                if (msg === "fail") {
+                    console.log("Insert selhalo")
+                } else {
+                    //mame hlasku, ze ok, musime si prebrat token (lastchange) a pouzit jej pro priste
+                    const lastchange = json.data.taskUpdate.task.lastchange
+                    dispatch(TaskActions.insertTask({...task, lastchange: lastchange}))
+                    dispatch(UserActions.addTask(json.data.taskUpdate.task))
+                }
+                return json
+            }
+        ) 
 }
 
 

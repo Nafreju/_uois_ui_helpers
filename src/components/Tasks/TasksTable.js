@@ -48,8 +48,8 @@ export const TasksTable = ({userId, actions}) => {
                     </thead>
                     <tbody>
                         
-                        {user?.tasks?.map((element, index) => (
-                            <TaskRow key={element.id} index={index} {...element} />
+                        {user?.tasks?.map((task, index) => (
+                            <TaskRow key={task.id} task={task} actions={actions} index={index}/>
                             ))}
                     </tbody>
                 </table>
