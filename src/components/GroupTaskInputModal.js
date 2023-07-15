@@ -4,13 +4,20 @@ import { Button, Modal } from 'react-bootstrap';
 import { ButtonAddTasks } from "./ButtonAddTasks";
 
 export const GroupTaskInputModal = ({showModal, setModal, group, actions}) => {
-    const [newTask, setNewTask] = useState()
+  //set all atributes to default empty values probably
+    const [newTask, setNewTask] = useState({
+      briefDes:"",
+      dateOfSubmission: new Date(),
+      dateOfFulfillment: new Date(),
+      detailedDes: "",
+      reference: ""
+    })
 
     const handleClose = () => {
         setModal(false)
         setNewTask()
     }
-
+    console.log("should have it", newTask)
     return (
         <div>
         <Modal show={showModal} onHide={handleClose}>

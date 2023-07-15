@@ -6,8 +6,13 @@ import { ButtonAddTask } from './ButtonAddTask';
 
 
 export const UserTaskInputModal = ({showModal, setModal, user, actions}) => {
-  const [newTask, setNewTask] = useState({userId:user.id})
-
+  const [newTask, setNewTask] = useState({userId:user.id,
+    briefDes:"",
+    dateOfSubmission: new Date(),
+    dateOfFulfillment: new Date(),
+    detailedDes: "",
+    reference: ""
+  })
   const handleClose = () => {
     setModal(false)
     setNewTask({userId:user.id})
