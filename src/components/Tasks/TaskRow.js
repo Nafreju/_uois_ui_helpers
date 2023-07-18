@@ -4,9 +4,9 @@ import { TextAreaDelayed } from "components/TextAreaDelayed";
 import { DateInputChange } from "./DateInputChange";
 import { formatDate } from "utils/DateUtils";
 import { TaskDetailedDesChange } from "./TaskDetailedDesChange";
-
+//komponenta řádky
 export const TaskRow = ({task, actions}) => {
-    const today = new Date().getTime();
+    const today = new Date().getTime();   //vytváření datumu a času
     
     const dateEntryTD = formatDate(task.dateOfEntry)
     const dateSubmissionTD = formatDate(task.dateOfSubmission)
@@ -17,7 +17,8 @@ export const TaskRow = ({task, actions}) => {
       //add mutation to change atribute
       actions.updateTask({...task, briefDes:value})
     }
-
+//tabulka pro zadání úkolu uživateli a input 1 pro stručný popis úkolu
+//vrací id  uživatele, stručný popis úkolu, datum odevzdání a naplnění, detailní popis úkolu a odkaz
     return (
       <tr>
         <th>{task.id}</th>
@@ -28,9 +29,6 @@ export const TaskRow = ({task, actions}) => {
         <td> <TaskDetailedDesChange task={task} actions={actions}/></td>
         <td> <a href={task.reference} target="_blank">{task.reference}</a></td>
       </tr>
-
-
-
     );
   };
   

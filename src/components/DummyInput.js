@@ -1,4 +1,4 @@
-
+//vytváření defaultního inputu
 export const DummyInput = ({name, userName}) => {
   return (
       <form>
