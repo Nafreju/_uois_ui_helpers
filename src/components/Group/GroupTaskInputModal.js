@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { GroupTaskInputs } from "./GroupTaskInputs"
 import { Button, Modal, ModalHeader } from 'react-bootstrap';
-import { ButtonAddTasks } from "./ButtonAddTasks";
+import { ButtonAddTasks } from "../ButtonAddTasks";
 
 export const GroupTaskInputModal = ({showModal, setModal, group, actions}) => {
   const [newTask, setNewTask] = useState()

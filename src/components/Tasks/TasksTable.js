@@ -1,7 +1,7 @@
 import { TaskRow } from "./TaskRow"
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { UserTaskInputModal } from "components/UserTaskInputModal";
+import { UserTaskInputModal } from "components/User/UserTaskInputModal";
 import { TaskTableHeader } from "./TaskTableHeader";
 
 

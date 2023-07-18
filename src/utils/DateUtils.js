@@ -21,9 +21,9 @@ export function formatDate(date, sep ='.') {
 export function colorDate(date) {
     const today = new Date().getTime()
     const dateToCompare = new Date(date).getTime()
-    let retStyle = {color:"red"}
+    let style = {color:"red"}
     if (today < dateToCompare) {
-        retStyle = {color:"green"}
+        style = {color:"green"}
     }
-    return retStyle
+    return style
 }

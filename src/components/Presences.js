@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { UserSelectInteractive } from "./UserSelectInteractive"
+import { UserSelectInteractive } from "./User/UserSelectInteractive"
 import { actions } from "../utils/store"
-import { GroupSelectInteractive } from "./GroupSelectInteractive"
+import { GroupSelectInteractive } from "./Group/GroupSelectInteractive"
 
 export const Presences = () => {
     const [selectedOption, setSelectedOption] = useState("student")

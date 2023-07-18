@@ -1,6 +1,6 @@
 
-import { DummyInput } from "./DummyInput"
-import { TaskActiveInputs } from "./Tasks/TaskActiveInputs"
+import { DummyInput } from "../DummyInput"
+import { TaskActiveInputs } from "../Tasks/TaskActiveInputs"
 
 export const GroupTaskInputs = ({group, setTask, task}) => {
     return (
