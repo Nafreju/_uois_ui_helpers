@@ -28,8 +28,8 @@ export const TasksTable = ({userId, actions}) => {
                 <table className="table" >
                     <TaskTableHeader onClickAddTask={addTask} user={user}/>
                     <tbody>
-                        {user?.tasks?.map((task) => (
-                            <TaskRow key={task.id} task={{...task, userId:userId}} actions={actions}/>
+                        {user?.tasks?.map((task, index) => (
+                            <TaskRow key={task.id} index={index} task={{...task, userId:userId}} actions={actions}/>
                             ))}
                     </tbody>
                 </table>

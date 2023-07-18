@@ -1,5 +1,5 @@
 
-export const TaskNameInput = ({name, onNameChange, task, actions}) => {
+export const TaskNameInput = ({name, onNameChange}) => {
     const handleChange = (event) => {
       onNameChange(event.target.value)
     }
