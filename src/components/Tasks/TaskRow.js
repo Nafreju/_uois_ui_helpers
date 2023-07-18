@@ -3,6 +3,7 @@ import { TaskNameChange } from "./TaskNameChange";
 import { TextAreaDelayed } from "components/TextAreaDelayed";
 import { DateInputChange } from "./DateInputChange";
 import { formatDate } from "utils/DateUtils";
+import { TaskDetailedDesChange } from "./TaskDetailedDesChange";
 
 export const TaskRow = ({task, actions}) => {
     const today = new Date().getTime();
@@ -21,12 +22,12 @@ export const TaskRow = ({task, actions}) => {
 
     return (
       <tr>
-        <th scope="row">{task.id}</th>
+        <th>{task.id}</th>
         <td><TaskNameChange task={task} actions={actions}/></td>
         <td>{dateEntryTD}</td>
         <td style={{color:deadline_color}}><DateInputChange task={task} actions={actions}/></td>
-        <td> <TextAreaDelayed key={task.id + 1} placeholder={task.briefDes} value={task.briefDes} onChange={briefDesServerChange}/></td>
-        <td> {task.detailedDes}</td>
+        <td> <TextAreaDelayed key={task.id} placeholder={task.briefDes} value={task.briefDes} onChange={briefDesServerChange}/></td>
+        <td> <TaskDetailedDesChange task={task} actions={actions}/></td>
         <td> <a href={task.reference} target="_blank">{task.reference}</a></td>
 
       </tr>
