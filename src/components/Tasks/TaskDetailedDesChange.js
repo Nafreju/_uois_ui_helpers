@@ -6,7 +6,7 @@ export const TaskDetailedDesChange = ({task, actions}) => {
     }
 
     return(
-         <TextAreaDelayed key={task.id} placeholder={task.name} 
-         value={task.name} onChange={handleChange}/>
+         <TextAreaDelayed key={task.id} placeholder={task.detailedDes} 
+         value={task.detailedDes} onChange={handleChange}/>
     )  
 }

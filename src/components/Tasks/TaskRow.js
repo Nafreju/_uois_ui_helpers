@@ -13,8 +13,6 @@ export const TaskRow = ({task, actions}) => {
     let deadline_color = "red";
     if (today < new Date(dateSubmissionTD)) deadline_color = "green";
 
-    console.log("taskDate from db", task?.dateOfSubmission)
-    console.log("type changed", new Date(task?.dateOfSubmission).toISOString().split("T")[0])
     const briefDesServerChange = (value) => {
       //add mutation to change atribute
       actions.updateTask({...task, briefDes:value})
@@ -29,7 +27,6 @@ export const TaskRow = ({task, actions}) => {
         <td> <TextAreaDelayed key={task.id} placeholder={task.briefDes} value={task.briefDes} onChange={briefDesServerChange}/></td>
         <td> <TaskDetailedDesChange task={task} actions={actions}/></td>
         <td> <a href={task.reference} target="_blank">{task.reference}</a></td>
-
       </tr>
 
 
