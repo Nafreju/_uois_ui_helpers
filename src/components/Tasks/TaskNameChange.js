@@ -1,3 +1,4 @@
+import { TextAreaDelayed } from "components/TextAreaDelayed"
 import { TextInput } from "components/TextInput"
 
 export const TaskNameChange = ({task, actions}) => {
@@ -6,7 +7,7 @@ export const TaskNameChange = ({task, actions}) => {
     }
 
     return (
-        <TextInput key={task.id} placeholder={task.name} 
+        <TextAreaDelayed key={task.id} placeholder={task.name} 
             value={task.name} onChange={handleChange}/>
         
     )
