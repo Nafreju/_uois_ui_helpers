@@ -1,4 +1,4 @@
-
+//input pro název úkolu
 export const TaskNameInput = ({name, onNameChange, task, actions}) => {
     const handleChange = (event) => {
       onNameChange(event.target.value)
