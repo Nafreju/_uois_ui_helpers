@@ -1,13 +1,14 @@
 
 import { DummyInput } from "../DummyInput"
 import { TaskActiveInputs } from "../Tasks/TaskActiveInputs"
+
 /**
- *Representing all inputs inside of modal
+ * Representing all inputs inside of modal
  * @function
- * @param {string} group
- * @param {(Object)=>void} onTaskChange
- * @param {string} task
- * @returns {JSX.Element} - The rendered component
+ * @param {Object} group containing memberships of all users
+ * @param {(Object) => void} onTaskChange callback changing atributes of task
+ * @param {Object} task current value of task
+ * @returns {JSX.Element} inputs inside of modal
  */
 export const GroupTaskInputs = ({group, onTaskChange, task}) => {
     return (

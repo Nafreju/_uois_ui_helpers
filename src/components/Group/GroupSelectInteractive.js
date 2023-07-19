@@ -4,28 +4,27 @@ import { useState } from "react"
 import ReactSelect from 'react-select';
 import { GroupTasks } from "./GroupTasks";
 /** 
- * Representing select group
+ * Representing select of group with text input fetch from server by 3 letters
  * @function
- * @param {Object} actions
- * @returns {JSX.Element} - The rendered component
+ * @param {Object} actions actions containing async fetches
+ * @returns {JSX.Element} representing group selection
  */
 export const GroupSelectInteractive = ({actions}) => {
     const groups = useSelector(state => state.groups)
     const [selectedGroupId, setSelectedGroupId] = useState(null)
 
     const handleInputChange = (value) => {
-        //performs short fetch by letters
+        //performs part (short) fetch by letters - store is updated afterwards and this component is rerendered
         actions.partGroupsFetch(value)
         setSelectedGroupId(null)
     }
 
     const handleSelectChange = (selected) => {
         setSelectedGroupId(selected.value)
-        //probably fetch memberships and then userTasks
     }
 
     let options = []
-
+    //maps groups from store into options which can be used in ReactSelect
     if (groups) {
         options = Object.entries(groups).map(group => ({
             label: group[1].name, value: group[1].id
