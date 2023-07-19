@@ -1,4 +1,9 @@
-
+/**
+ * 
+ * @param {string} name
+ * @param {(event) => void} onNameChange
+ * @returns 
+ */
 export const TaskNameInput = ({name, onNameChange}) => {
     const handleChange = (event) => {
       onNameChange(event.target.value)

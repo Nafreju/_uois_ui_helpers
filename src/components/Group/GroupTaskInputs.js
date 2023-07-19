@@ -1,7 +1,13 @@
 
 import { DummyInput } from "../DummyInput"
 import { TaskActiveInputs } from "../Tasks/TaskActiveInputs"
-
+/**
+ * 
+ * @param {string} group
+ * @param {} setTask
+ * @param {string} task
+ * @returns 
+ */
 export const GroupTaskInputs = ({group, setTask, task}) => {
     return (
         <div>

@@ -1,4 +1,9 @@
-
+/**
+ * 
+ * @param {string}info
+ * @param {(event) => void} onStringChange
+ * @returns     
+ */
 
 export const TaskStringInput = ({info, onStringChange}) => {
     const handleChange = (event) => {

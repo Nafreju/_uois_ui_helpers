@@ -1,4 +1,9 @@
-
+/**
+ * 
+ * @param {string} name 
+ * @param {string} userName
+ * @returns 
+ */
 export const DummyInput = ({name, userName}) => {
   return (
       <form>

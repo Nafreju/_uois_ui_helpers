@@ -1,6 +1,11 @@
 import { minMaxDate } from "utils/DateUtils"
 
-
+/**
+ * 
+ * @param {string} info
+ * @param {(event) => void}onDateChange
+ * @returns 
+ */
 export const TaskDateInput = ({info, onDateChange})=> {
     const handleDateChanged = (event) => {
       onDateChange(event.target.value)

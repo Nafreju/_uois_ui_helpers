@@ -4,7 +4,11 @@ import { useSelector } from "react-redux";
 import { UserTaskInputModal } from "components/User/UserTaskInputModal";
 import { TaskTableHeader } from "./TaskTableHeader";
 
-
+/**
+ * @param {string} userId
+ * @param {Object} actions
+ * @returns 
+ */
 export const TasksTable = ({userId, actions}) => {
     const users = useSelector(state => state.users)
     //if userId changed -useEffect, fetch his tasks

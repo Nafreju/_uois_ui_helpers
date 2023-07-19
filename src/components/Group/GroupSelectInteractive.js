@@ -3,7 +3,10 @@ import { TextInput } from "../TextInput"
 import { useState } from "react"
 import ReactSelect from 'react-select';
 import { GroupTasks } from "./GroupTasks";
-
+/**
+ * @param {Object} actions
+ * @returns 
+ */
 export const GroupSelectInteractive = ({actions}) => {
     const groups = useSelector(state => state.groups)
     const [selectedGroupId, setSelectedGroupId] = useState(null)

@@ -1,4 +1,9 @@
-
+/**
+ * 
+ * @param {() => void} onClickAddTask
+ * @param {string} user
+ * @returns 
+ */
 
 export const TaskTableHeader = ({onClickAddTask, user}) => {
     return (

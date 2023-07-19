@@ -5,7 +5,12 @@ import { formatDate } from "utils/DateUtils";
 import { TaskDetailedDesChange } from "./TaskDetailedDesChange";
 import { TaskReferenceChange } from "./TaskReferenceChange";
 import { TaskDateChange } from "./TaskDateChange";
-
+/**
+ * @param {string} task
+ * @param {Object} actions
+ * @param {string} index
+ * @returns 
+ */
 export const TaskRow = ({task, actions, index}) => {
     
     const dateEntryTD = formatDate(task.dateOfEntry)

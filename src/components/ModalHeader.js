@@ -1,4 +1,8 @@
-
+/**
+ * 
+ * @param {} 
+ * @returns 
+ */
 
 export const ModalHeader = () => {
     return (

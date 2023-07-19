@@ -10,8 +10,8 @@ const dateStyle = {
 
 
 /**
- * 
- * @param {*} param0 
+ * @param {}setTask
+ * @param {string}task
  * @returns 
  */
 export const TaskActiveInputs = ({setTask, task}) => {  

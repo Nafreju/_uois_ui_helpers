@@ -1,7 +1,11 @@
 
 import { useState } from "react"
 import { Button } from "react-bootstrap"
-
+/**
+ * @param {string} TaskDateInput
+ * @param {Object} actions
+ * @returns 
+ */
 
 export const ButtonAddTask = ({task, actions}) => {
     const [taskStored, setTaskStored] = useState(false)

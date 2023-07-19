@@ -1,7 +1,14 @@
 import { useState, useMemo, useCallback } from 'react'
-
 import { CreateDelayer } from 'utils/CreateDelayer'
 
+/**
+ * 
+ * @param {string} id
+ * @param {string} value 
+ * @param {(value) => void} onChange
+ * @param {string} placeholder
+ * @returns 
+ */
 
 export const TextAreaDelayed = ({id, value, onChange, placeholder}) => {
     const [localValue, setLocalValue] = useState(value)

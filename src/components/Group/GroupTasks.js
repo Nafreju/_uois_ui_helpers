@@ -2,7 +2,13 @@ import { useEffect } from "react"
 import { TasksTable } from "../Tasks/TasksTable"
 import { GroupTaskInputModal } from "components/Group/GroupTaskInputModal"
 import { useState } from "react"
-
+/**
+ * 
+ * @param {string} groupId
+ * @param {Object} actions
+ * @param {string} groups
+ * @returns 
+ */
 export const GroupTasks = ({groupId, actions, groups}) => {
     useEffect(
         () => {
