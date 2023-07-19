@@ -22,7 +22,7 @@ export const UserTaskInputModal = ({showModal, setModal, user, actions}) => {
             <Modal.Title>Vytvořte úkol</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <UserTaskInputs user={user} setTask={setNewTask} task={newTask}/>
+          <UserTaskInputs user={user} onTaskChange={setNewTask} task={newTask}/>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>Zavřít</Button>

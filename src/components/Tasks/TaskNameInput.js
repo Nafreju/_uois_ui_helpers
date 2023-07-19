@@ -1,5 +1,6 @@
 /**
- * 
+ * Representig callbacks that are changing task name from text input 
+ * @function
  * @param {string} name
  * @param {(event) => void} onNameChange
  * @returns 

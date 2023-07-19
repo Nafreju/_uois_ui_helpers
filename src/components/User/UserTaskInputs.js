@@ -1,11 +1,17 @@
 import { TaskActiveInputs } from "../Tasks/TaskActiveInputs";
 import { UserDummyInput } from "./UserDummyInput";
-
-export const UserTaskInputs = ({user, setTask, task}) => {
+/**
+ * Representing all inputs inside of modal 
+ * @param {string} user
+ * @param {()=> void}onTaskChange
+ * @param {string} task
+ * @returns 
+ */
+export const UserTaskInputs = ({user, onTaskChange, task}) => {
   return (
     <div>
         <UserDummyInput user={user}/>
-        <TaskActiveInputs setTask={setTask} task={task}/>
+        <TaskActiveInputs onTaskChange={onTaskChange} task={task}/>
     </div> 
   );
 }

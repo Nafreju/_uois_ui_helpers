@@ -7,36 +7,36 @@ const dateStyle = {
     flex: 1,
     backgroundColor: 'lightblue',
   }
-
-
 /**
- * @param {}setTask
+ * Representig callbacks for entering text and date into task
+ * @function
+ * @param {(Object)=>void}onTaskChange
  * @param {string}task
  * @returns 
  */
-export const TaskActiveInputs = ({setTask, task}) => {  
+export const TaskActiveInputs = ({onTaskChange, task}) => {  
     const onNameChange = (newName) => {
-      setTask({...task, name:newName})                 
+      onTaskChange({...task, name:newName})                 
     }
   
     const onBriefDescChange = (newBriefDesc) => {
-      setTask({...task, briefDes:newBriefDesc})
+      onTaskChange({...task, briefDes:newBriefDesc})
     }
   
     const onDetailedDescChange = (newDetailedDesc) => {
-      setTask({...task, detailedDes:newDetailedDesc})
+      onTaskChange({...task, detailedDes:newDetailedDesc})
     }
   
     const onReferenceChange = (newReference) => {
-      setTask({...task, reference:newReference})
+      onTaskChange({...task, reference:newReference})
     }
   
     const onDateOfSubmissionChange = (newSubDate) => {
-      setTask({...task, dateOfSubmission:newSubDate})
+      onTaskChange({...task, dateOfSubmission:newSubDate})
     }
   
     const onDateofFulfillmentChange = (newFulDate) => {
-      setTask({... task, dateOfFulfillment:newFulDate})
+      onTaskChange({... task, dateOfFulfillment:newFulDate})
     }
     
     return (

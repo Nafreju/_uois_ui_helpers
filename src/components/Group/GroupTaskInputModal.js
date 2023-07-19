@@ -3,7 +3,8 @@ import { GroupTaskInputs } from "./GroupTaskInputs"
 import { Button, Modal, ModalHeader } from 'react-bootstrap';
 import { ButtonAddTasks } from "../ButtonAddTasks";
 /**
- * 
+ * A modal for entering a group task
+ * @function
  * @param {bool}showModal
  * @param {(bool)=> void}setModal
  * @param {string} group

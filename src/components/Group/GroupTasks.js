@@ -3,7 +3,8 @@ import { TasksTable } from "../Tasks/TasksTable"
 import { GroupTaskInputModal } from "components/Group/GroupTaskInputModal"
 import { useState } from "react"
 /**
- * 
+ * Represeting all tasks of selected group by parent reactSelect component
+ * @function
  * @param {string} groupId
  * @param {Object} actions
  * @param {string} groups

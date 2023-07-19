@@ -1,6 +1,10 @@
 import { TextAreaDelayed } from "components/TextAreaDelayed"
 import { TextInput } from "components/TextInput"
 /**
+ * Representing multiline input for task name.
+ * After 300 ms of delay task name is updated on the server and store. 
+ * After that changed task name is rendered on the page.
+ * @function
  * @param {string} task
  * @param {Object} actions
  * @returns 

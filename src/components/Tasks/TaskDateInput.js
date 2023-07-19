@@ -1,7 +1,8 @@
 import { minMaxDate } from "utils/DateUtils"
 
 /**
- * 
+ * Choosing a suitable date and time for task
+ * @function
  * @param {string} info
  * @param {(event) => void}onDateChange
  * @returns 
@@ -21,4 +22,4 @@ export const TaskDateInput = ({info, onDateChange})=> {
             </label>
           </form>
       )
-  }
+      }
