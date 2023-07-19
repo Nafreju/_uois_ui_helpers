@@ -10,8 +10,6 @@ import { CreateDelayer } from 'utils/CreateDelayer'
  * @param {(value) => void} onChange delayed callback notifying about the change
  * @returns {JSX.Element} The rendered component.
  */
- 
-
 export const TextAreaDelayed = ({id, value, onChange, placeholder}) => {
     const [localValue, setLocalValue] = useState(value)
 
