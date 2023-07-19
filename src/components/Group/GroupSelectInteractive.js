@@ -5,6 +5,7 @@ import ReactSelect from 'react-select';
 import { GroupTasks } from "./GroupTasks";
 /** 
  * Representing select group
+ * @function
  * @param {Object} actions
  * @returns 
  */
