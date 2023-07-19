@@ -26,7 +26,7 @@ export const GroupTaskInputModal = ({showModal, setModal, group, actions}) => {
             <Modal.Title>Vytvořte úkol</Modal.Title>
         </Modal.Header>
           <Modal.Body>
-            <GroupTaskInputs group={group} setTask={setNewTask} task={newTask}/>
+            <GroupTaskInputs group={group} onTaskChange={setNewTask} task={newTask}/>
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>Zavřít</Button>
