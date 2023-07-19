@@ -25,9 +25,10 @@ export const UserTasksQueryJSON = (userId) => ({
 })
 
 /**
- * Realizace dotazu na server. Vyuziva autorizedFetch (zapouzdreni)
+ * Performs userById request using authorized fetch
+ * @param {string} userId id of user we want to get information about
+ * @returns {Promise<Response>} A promise representing userById
  */
-
 export const UserTasksQuery = (userId) =>
     authorizedFetch('/gql', {
         body: JSON.stringify(UserTasksQueryJSON(userId)),

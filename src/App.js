@@ -8,7 +8,7 @@ import { Presences } from 'components/Presences';
 
 
 
-
+//main app component rendering all componets in this project
 function App() {
     return (
         <div className="App">

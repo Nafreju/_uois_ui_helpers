@@ -1,7 +1,11 @@
 import { UserActions } from "reducers/UserReducers"
 
 
-
+/**
+ * Async function which inserts task into server and response stores into store via reducer addTask
+ * @param {Object} task task object to be inserted
+ * @returns {Function} A function which accepts dispatch and getState from redux
+ */
 export const TaskAsyncInsert = (task) => (dispatch, getState) => {
     const taskMutationJSON = (task) => {
         return {
@@ -38,7 +42,6 @@ export const TaskAsyncInsert = (task) => (dispatch, getState) => {
 
 
     return fetch('/api/gql', params)
-    //return authorizedFetch('/api/gql', params)
         .then(
             resp => resp.json()
         )
@@ -48,7 +51,6 @@ export const TaskAsyncInsert = (task) => (dispatch, getState) => {
                 if (msg === "fail") {
                     console.log("Insert selhalo")
                 } else {
-                    //mame hlasku, ze ok, musime si prebrat token (lastchange) a pouzit jej pro priste
                     const newTask = json.data.taskInsert.task
                     dispatch(UserActions.addTask({...newTask, user:{id:task.userId}}))
                 }
@@ -57,7 +59,11 @@ export const TaskAsyncInsert = (task) => (dispatch, getState) => {
         )   
 }
 
-
+/**
+ * Async function which updates task into server and updates response task into store via reducer updateTask
+ * @param {*} task task object to be updated
+ * @returns A function which accepts dispatch and getState from redux
+ */
 export const TaskAsyncUpdate = (task) => (dispatch, getState) => {
     const taskMutationJSON = (task) => {
         return {
@@ -92,7 +98,6 @@ export const TaskAsyncUpdate = (task) => (dispatch, getState) => {
     }
 
     return fetch('/api/gql', params)
-    //return authorizedFetch('/api/gql', params)
         .then(
             resp => resp.json()
         )
@@ -102,7 +107,6 @@ export const TaskAsyncUpdate = (task) => (dispatch, getState) => {
                 if (msg === "fail") {
                     console.log("Insert selhalo")
                 } else {
-                    //mame hlasku, ze ok, musime si prebrat token (lastchange) a pouzit jej pro priste
                     const newTask = json.data.taskUpdate.task
                     dispatch(UserActions.updateTask({...newTask, user:{id:task.userId}}))
                 }

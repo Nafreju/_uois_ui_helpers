@@ -9,8 +9,7 @@ import { TaskAsyncInsert, TaskAsyncUpdate } from 'fetches/TaskAsyncActions'
 
 
 
-
-
+// redux store
 export const store = configureStore({
     reducer: {
         users : userReducer,
@@ -18,9 +17,11 @@ export const store = configureStore({
     },
 })
 
+//global dispatch
 const dispatch = store.dispatch
 
 
+//actions which can perform async updates, inserts or atributes fetches
 export const actions = {
     partUsersFetch: (letters) => dispatch(PartUsersFetch(letters)),
     userTasksFetch: (userId) => dispatch(UserTasksFetch(userId)),
