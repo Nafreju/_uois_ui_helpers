@@ -9,6 +9,5 @@ export const TaskNameChange = ({task, actions}) => {
     return (
         <TextAreaDelayed key={task.id} placeholder={task.name} 
             value={task.name} onChange={handleChange}/>
-        
     )
 }

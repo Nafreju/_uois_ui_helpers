@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux"
-import { TextInput } from "./TextInput"
+import { TextInput } from "../TextInput"
 import {  useState } from "react"
 import ReactSelect from 'react-select';
-import { TasksTable } from "./Tasks/TasksTable";
+import { TasksTable } from "../Tasks/TasksTable";
 
 //if something is selected
 export const UserSelectInteractive = ({actions}) => {

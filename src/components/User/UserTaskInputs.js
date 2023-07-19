@@ -1,5 +1,5 @@
-import { TaskActiveInputs } from "./Tasks/TaskActiveInputs";
-import { UserDummyInput } from "./Tasks/UserDummyInput";
+import { TaskActiveInputs } from "../Tasks/TaskActiveInputs";
+import { UserDummyInput } from "./UserDummyInput";
 
 export const UserTaskInputs = ({user, setTask, task}) => {
   return (

@@ -17,3 +17,13 @@ export function formatDate(date, sep ='.') {
     const year = dateToFormat.getFullYear();
     return `${day}${sep}${month}${sep}${year}`;
   }
+
+export function colorDate(date) {
+    const today = new Date().getTime()
+    const dateToCompare = new Date(date).getTime()
+    let style = {color:"red"}
+    if (today < dateToCompare) {
+        style = {color:"green"}
+    }
+    return style
+}

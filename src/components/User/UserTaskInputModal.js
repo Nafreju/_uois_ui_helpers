@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader } from 'react-bootstrap';
 import { UserTaskInputs } from './UserTaskInputs';
-import { ButtonAddTask } from './ButtonAddTask';
+import { ButtonAddTask } from '../ButtonAddTask';
 
 
 

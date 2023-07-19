@@ -8,6 +8,12 @@ const dateStyle = {
     backgroundColor: 'lightblue',
   }
 
+
+/**
+ * 
+ * @param {*} param0 
+ * @returns 
+ */
 export const TaskActiveInputs = ({setTask, task}) => {  
     const onNameChange = (newName) => {
       setTask({...task, name:newName})                 

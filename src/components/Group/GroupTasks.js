@@ -1,6 +1,6 @@
 import { useEffect } from "react"
-import { TasksTable } from "./Tasks/TasksTable"
-import { GroupTaskInputModal } from "components/GroupTaskInputModal"
+import { TasksTable } from "../Tasks/TasksTable"
+import { GroupTaskInputModal } from "components/Group/GroupTaskInputModal"
 import { useState } from "react"
 
 export const GroupTasks = ({groupId, actions, groups}) => {
