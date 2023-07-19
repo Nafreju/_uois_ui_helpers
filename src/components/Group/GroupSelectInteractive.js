@@ -6,7 +6,7 @@ import { GroupTasks } from "./GroupTasks";
 /** 
  * Representing select of group with text input fetch from server by 3 letters
  * @function
- * @param {Object} actions actions containing async fetches
+ * @param {Object} props.actions actions containing async fetches
  * @returns {JSX.Element} representing group selection
  */
 export const GroupSelectInteractive = ({actions}) => {

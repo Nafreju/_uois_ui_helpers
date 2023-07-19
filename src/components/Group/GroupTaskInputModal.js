@@ -5,10 +5,10 @@ import { ButtonAddTasks } from "../ButtonAddTasks";
 /**
  * A modal for inserting a group task
  * @function
- * @param {bool} showModal responsible for showing or not showing modal
- * @param {(bool) => void} setModal used for closing modal
- * @param {Object} group group of users which task is added to
- * @param {Object} actions actions containing async fetches
+ * @param {bool} props.showModal responsible for showing or not showing modal
+ * @param {(bool) => void} props.setModal used for closing modal
+ * @param {Object} props.group group of users which task is added to
+ * @param {Object} props.actions actions containing async fetches
  * @returns {JSX.Element} representing modal for defining atributes of created task
  */
 export const GroupTaskInputModal = ({showModal, setModal, group, actions}) => {

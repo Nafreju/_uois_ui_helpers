@@ -1,21 +1,22 @@
 import { TextAreaDelayed } from "components/TextAreaDelayed";
+
 /**
- * Representing multiline minput for detailed description of the task.
+ * Representing multiline input for detailed description of the task.
  * After 300 ms of delay detailed description is updated on the server and store. 
- * After that changed detailed deccription is rendered on the page.
+ * After that changed detailed deccription is rerendered on the page.
  * 
  * @function
- * @param {string} task
- * @param {Object} actions
- * @returns {JSX.Element} - The rendered component
+ * @param {Object} props.task representing current value of task
+ * @param {Object} props.actions actions containing async fetches
+ * @returns {JSX.Element} text area when written into changing detailed description of task
  */
 export const TaskDetailedDesChange = ({task, actions}) => {
     const handleChange = (value) => {
         actions.updateTask({...task, detailedDes:value})
     }
 
-    return(
-         <TextAreaDelayed key={task.id} placeholder={task.detailedDes} 
-         value={task.detailedDes} onChange={handleChange}/>
+    return (
+        <TextAreaDelayed key={task.id} placeholder={task.detailedDes} 
+            value={task.detailedDes} onChange={handleChange}/>
     )  
 }

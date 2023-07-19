@@ -13,19 +13,19 @@ function formatDateToYYYYMMDD(date) {
     return `${year}-${month}-${day}`;
   }
 
-
 /**
  * Renders submission date of given task with ability to change it
  * @function
- * @param {Object} props.task - the task object which date of submission is about to change
- * @param {Object} props.actions - global async actions 
- * @returns {JSX.Element} The rendered component.
+ * @param {Object} props.task the task object which date of submission is about to be changed
+ * @param {Object} props.actions actions containing async fetches
+ * @returns {JSX.Element} input date to be chosen by clicking in calendar
  */
 export const TaskDateChange = ({task, actions}) => {
-    const [minDate, maxDate] = minMaxDate()
+    const [minDate, maxDate] = minMaxDate() //for setting range of calendar
+        
     const handleDateChanged = (event) => {
         const newDate = event.target.value
-        actions.updateTask({...task, dateOfSubmission:newDate})
+        actions.updateTask({...task, dateOfSubmission:newDate}) //async update on server
     }
 
     return (

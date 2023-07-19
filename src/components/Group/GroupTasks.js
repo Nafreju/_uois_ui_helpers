@@ -5,9 +5,9 @@ import { useState } from "react"
 /**
  * Represeting all tasks of selected group by parent reactSelect component
  * @function
- * @param {string} groupId ID of group which tasks are beeing rendered
- * @param {Object} actions actions containing async fetches
- * @param {Object} groups groups from store
+ * @param {string} props.groupId ID of group which tasks are beeing rendered
+ * @param {Object} props.actions actions containing async fetches
+ * @param {Object} props.groups groups from store
  * @returns {JSX.Element} All tasks as Tables
  */
 export const GroupTasks = ({groupId, actions, groups}) => {

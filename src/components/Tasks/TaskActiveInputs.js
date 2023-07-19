@@ -1,20 +1,21 @@
-
 import { TaskDateInput } from "./TaskDateInput"
 import { TaskStringInput } from "./TaskStringInput"
 
-
+//used to color dates
 const dateStyle = {
     flex: 1,
     backgroundColor: 'lightblue',
-  }
+}
+
 /**
- * Representig callbacks for entering text and date into task
+ * Representig callbacks for defining text and date into task
  * @function
- * @param {(Object)=>void}onTaskChange
- * @param {string}task
- * @returns {JSX.Element} - The rendered component
+ * @param {(Object) => void} props.onTaskChange callback to change atributes of task
+ * @param {Object} props.task new task to be defined
+ * @returns {JSX.Element} components which can be used to define atributes of new task
  */
-export const TaskActiveInputs = ({onTaskChange, task}) => {  
+export const TaskActiveInputs = ({onTaskChange, task}) => {
+    //all callbacks each for specific atribute passed to children Input components
     const onNameChange = (newName) => {
       onTaskChange({...task, name:newName})                 
     }
