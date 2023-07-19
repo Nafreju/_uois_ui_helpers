@@ -4,10 +4,11 @@ import { useSelector } from "react-redux";
 import { UserTaskInputModal } from "components/User/UserTaskInputModal";
 import { TaskTableHeader } from "./TaskTableHeader";
 
-/**
+/**Representing table of tasks for one user
+ * @function
  * @param {string} userId
  * @param {Object} actions
- * @returns 
+ * @returns {JSX.Element} - The rendered component
  */
 export const TasksTable = ({userId, actions}) => {
     const users = useSelector(state => state.users)

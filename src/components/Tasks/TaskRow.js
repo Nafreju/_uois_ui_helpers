@@ -6,10 +6,12 @@ import { TaskDetailedDesChange } from "./TaskDetailedDesChange";
 import { TaskReferenceChange } from "./TaskReferenceChange";
 import { TaskDateChange } from "./TaskDateChange";
 /**
+ * Representing row of one task with components which are able to view and change its atributes.
+ * @function
  * @param {string} task
  * @param {Object} actions
  * @param {string} index
- * @returns 
+ * @returns {JSX.Element} - The rendered component
  */
 export const TaskRow = ({task, actions, index}) => {
     

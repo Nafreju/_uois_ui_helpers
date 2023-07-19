@@ -9,7 +9,7 @@ import { ButtonAddTasks } from "../ButtonAddTasks";
  * @param {(bool)=> void}setModal
  * @param {string} group
  * @param {Object} actions
- * @returns 
+ * @returns {JSX.Element} - The rendered component
  */
 export const GroupTaskInputModal = ({showModal, setModal, group, actions}) => {
   const [newTask, setNewTask] = useState()

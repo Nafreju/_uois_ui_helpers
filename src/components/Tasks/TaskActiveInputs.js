@@ -12,7 +12,7 @@ const dateStyle = {
  * @function
  * @param {(Object)=>void}onTaskChange
  * @param {string}task
- * @returns 
+ * @returns {JSX.Element} - The rendered component
  */
 export const TaskActiveInputs = ({onTaskChange, task}) => {  
     const onNameChange = (newName) => {

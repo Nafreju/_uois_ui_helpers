@@ -1,8 +1,9 @@
 /**
- * 
+ * Representing header of table
+ * @function
  * @param {() => void} onClickAddTask
  * @param {string} user
- * @returns 
+ * @returns {JSX.Element} - The rendered component 
  */
 
 export const TaskTableHeader = ({onClickAddTask, user}) => {

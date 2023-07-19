@@ -7,7 +7,7 @@ import { TextInput } from "components/TextInput"
  * @function
  * @param {string} task
  * @param {Object} actions
- * @returns 
+ * @returns {JSX.Element} - The rendered component
  */
 export const TaskNameChange = ({task, actions}) => {
     const handleChange = (value) => {

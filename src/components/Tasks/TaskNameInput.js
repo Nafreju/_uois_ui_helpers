@@ -3,7 +3,7 @@
  * @function
  * @param {string} name
  * @param {(event) => void} onNameChange
- * @returns 
+ * @returns {JSX.Element} - The rendered component
  */
 export const TaskNameInput = ({name, onNameChange}) => {
     const handleChange = (event) => {

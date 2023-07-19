@@ -1,8 +1,9 @@
-/**
- * 
+/**Representig universal component. 
+ * Given callback takes string after change of text in input.
+ * @function
  * @param {string}info
- * @param {(event) => void} onStringChange
- * @returns     
+ * @param {(string) => void} onStringChange
+ * @returns {JSX.Element} - The rendered component   
  */
 
 export const TaskStringInput = ({info, onStringChange}) => {

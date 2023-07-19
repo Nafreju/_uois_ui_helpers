@@ -8,7 +8,7 @@ import { useState } from "react"
  * @param {string} groupId
  * @param {Object} actions
  * @param {string} groups
- * @returns 
+ * @returns {JSX.Element} - The rendered component
  */
 export const GroupTasks = ({groupId, actions, groups}) => {
     useEffect(

@@ -1,10 +1,10 @@
 import { TextInput } from "components/TextInput"
 /**
- * Representing 
+ * Representing single line input for adding task reference. It is not clickable.
  * @function
  * @param {string}task
  * @param {Object} actions
- * @returns 
+ * @returns {JSX.Element} - The rendered component
  */
 export const TaskReferenceChange = ({task, actions}) => {
     const handleChange = (value) => {

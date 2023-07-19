@@ -7,7 +7,7 @@ import { GroupTasks } from "./GroupTasks";
  * Representing select group
  * @function
  * @param {Object} actions
- * @returns 
+ * @returns {JSX.Element} - The rendered component
  */
 export const GroupSelectInteractive = ({actions}) => {
     const groups = useSelector(state => state.groups)

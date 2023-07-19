@@ -7,7 +7,7 @@ import { TaskActiveInputs } from "../Tasks/TaskActiveInputs"
  * @param {string} group
  * @param {(Object)=>void} setTask
  * @param {string} task
- * @returns 
+ * @returns {JSX.Element} - The rendered component
  */
 export const GroupTaskInputs = ({group, setTask, task}) => {
     return (
