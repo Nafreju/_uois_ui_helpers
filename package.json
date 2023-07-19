@@ -1,8 +1,8 @@
 {
-  "name": "survey",
-  "version": "0.1.0",
-  "private": true,
-  "homepage": "/ui",
+  "name": "presences",
+  "version": "0.1.1",
+  "private": false,
+  "homepage": "http:///ui",
   "proxy": "http://localhost:31180/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
@@ -51,5 +51,20 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "description": "https://5d24fed056258a00204c31b6-xdlbdiewjb.chromatic.com/?path=/story/chromatic-dateinput-input--default",
+  "main": "index.js",
+  "devDependencies": {},
+  "author": "Nafreju",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nafreju/_uois_ui_helpers.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Nafreju/_uois_ui_helpers/issues"
+  },
+  "directories": {
+    "doc": "docs"
   }
 }

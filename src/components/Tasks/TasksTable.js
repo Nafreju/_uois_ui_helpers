@@ -1,56 +1,45 @@
 import { TaskRow } from "./TaskRow"
-import { Card, Stack } from "react-bootstrap"
-import { CardGroup } from "react-bootstrap";
-import { Assignments } from "../../stories/DataStructures"
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { UserTaskInputModal } from "components/UserTaskInputModal";
+import { UserTaskInputModal } from "components/User/UserTaskInputModal";
+import { TaskTableHeader } from "./TaskTableHeader";
 
-//const array = Assignments.all
-//multiplecard
-
-
+/**
+ * Representing table of tasks for one user
+ * @function
+ * @param {string} props.userId id of user whose task will be displayed
+ * @param {Object} props.actions actions containing async fetches
+ * @returns {JSX.Element} table with header and rows if fetch was successful
+ */
 export const TasksTable = ({userId, actions}) => {
     const users = useSelector(state => state.users)
-    //if userId changed -useEffect, fetch his tasks
+
+    //if userId changed - selected different - fetch his task
     useEffect(
         () => {
-            //fetch his tasks by userId
+            //fetch tasks by userId
             actions.userTasksFetch(userId)
         }, [userId]
     )
     
-    const [showModal, setShowModal] = useState(false)
+    const [showModal, setShowModal] = useState(false)//modal for inserting new task
 
     const addTask = (event) => {
         setShowModal(true)
     }
 
     let user = users[userId]
+    
+    //maps user tasks into rows or waiting for successful fetch
     if (user?.tasks) {
         return (
             <div>
                 <table className="table" >
-                    <thead className="thead">
-                        <tr>
-                            <th scope="col" style={{color:"blue"}}>
-                                <button type="button" className="btn btn-outline-success btn-sm" onClick={addTask}>přidej úkol</button>
-                                <span style={{"marginRight":"10px"}} />
-                                {user?.name} {user?.surname}
-                                </th>
-                            <th scope="col">název</th>
-                            <th scope="col">datum zadání</th>
-                            <th scope="col">datum odevzdání</th>
-                            <th scope="col">popis</th>
-                            <th scope="col">detailní popis</th>
-                            <th scope="col">odkaz</th>
-                        </tr>
-                    </thead>
+                    <TaskTableHeader onClickAddTask={addTask} user={user}/>
                     <tbody>
-                        
-                        {user?.tasks?.map((element, index) => (
-                            <TaskRow key={element.id} index={index} {...element} />
-                            ))}
+                        {user?.tasks?.map((task, index) => (
+                            <TaskRow key={task.id} index={index} task={{...task, userId:userId}} actions={actions}/>
+                        ))}
                     </tbody>
                 </table>
                 <UserTaskInputModal showModal={showModal} setModal={setShowModal} user={user} actions={actions}/>
@@ -58,9 +47,7 @@ export const TasksTable = ({userId, actions}) => {
         )
     } else {
         return (
-            <div>
-                Načítám úkoly...
-            </div>
+            <div>Načítám úkoly...</div>
         )
     }
 }   

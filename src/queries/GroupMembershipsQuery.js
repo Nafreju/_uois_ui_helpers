@@ -16,7 +16,11 @@ const GroupMembershipsQueryJSON = (groupId) => ({
   "variables": {"id": groupId}
 })
 
-
+/**
+ * Performs groupById request using authorizedFetch
+ * @param {string} groupId id of group which memberships we want to fetch 
+ * @returns {Promise<Response>} A promise representing groupById request
+ */
 export const GroupMembershipsQuery = (groupId) => 
     authorizedFetch('/gql', {
         body: JSON.stringify(GroupMembershipsQueryJSON(groupId)),

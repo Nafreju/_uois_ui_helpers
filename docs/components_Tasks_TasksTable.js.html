@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Tasks/TasksTable.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Tasks/TasksTable.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { TaskRow } from "./TaskRow"
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { UserTaskInputModal } from "components/User/UserTaskInputModal";
+import { TaskTableHeader } from "./TaskTableHeader";
+
+/**
+ * Representing table of tasks for one user
+ * @function
+ * @param {string} props.userId id of user whose task will be displayed
+ * @param {Object} props.actions actions containing async fetches
+ * @returns {JSX.Element} table with header and rows if fetch was successful
+ */
+export const TasksTable = ({userId, actions}) => {
+    const users = useSelector(state => state.users)
+
+    //if userId changed - selected different - fetch his task
+    useEffect(
+        () => {
+            //fetch tasks by userId
+            actions.userTasksFetch(userId)
+        }, [userId]
+    )
+    
+    const [showModal, setShowModal] = useState(false)//modal for inserting new task
+
+    const addTask = (event) => {
+        setShowModal(true)
+    }
+
+    let user = users[userId]
+    
+    //maps user tasks into rows or waiting for successful fetch
+    if (user?.tasks) {
+        return (
+            &lt;div>
+                &lt;table className="table" >
+                    &lt;TaskTableHeader onClickAddTask={addTask} user={user}/>
+                    &lt;tbody>
+                        {user?.tasks?.map((task, index) => (
+                            &lt;TaskRow key={task.id} index={index} task={{...task, userId:userId}} actions={actions}/>
+                        ))}
+                    &lt;/tbody>
+                &lt;/table>
+                &lt;UserTaskInputModal showModal={showModal} setModal={setShowModal} user={user} actions={actions}/>
+            &lt;/div>
+        )
+    } else {
+        return (
+            &lt;div>Načítám úkoly...&lt;/div>
+        )
+    }
+}   </code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#ButtonAddTask">ButtonAddTask</a></li><li><a href="global.html#ButtonAddTasks">ButtonAddTasks</a></li><li><a href="global.html#CreateDelayer">CreateDelayer</a></li><li><a href="global.html#DummyInput">DummyInput</a></li><li><a href="global.html#GroupMembershipsFetch">GroupMembershipsFetch</a></li><li><a href="global.html#GroupMembershipsFetchHelper">GroupMembershipsFetchHelper</a></li><li><a href="global.html#GroupMembershipsQuery">GroupMembershipsQuery</a></li><li><a href="global.html#GroupSelectInteractive">GroupSelectInteractive</a></li><li><a href="global.html#GroupTaskInputModal">GroupTaskInputModal</a></li><li><a href="global.html#GroupTaskInputs">GroupTaskInputs</a></li><li><a href="global.html#GroupTasks">GroupTasks</a></li><li><a href="global.html#PartGroupsFetch">PartGroupsFetch</a></li><li><a href="global.html#PartGroupsFetchHelper">PartGroupsFetchHelper</a></li><li><a href="global.html#PartGroupsQuery">PartGroupsQuery</a></li><li><a href="global.html#PartUsersFetch">PartUsersFetch</a></li><li><a href="global.html#PartUsersFetchHelper">PartUsersFetchHelper</a></li><li><a href="global.html#PartUsersQuery">PartUsersQuery</a></li><li><a href="global.html#Presences">Presences</a></li><li><a href="global.html#TaskActiveInputs">TaskActiveInputs</a></li><li><a href="global.html#TaskAsyncInsert">TaskAsyncInsert</a></li><li><a href="global.html#TaskAsyncUpdate">TaskAsyncUpdate</a></li><li><a href="global.html#TaskDateChange">TaskDateChange</a></li><li><a href="global.html#TaskDateInput">TaskDateInput</a></li><li><a href="global.html#TaskDetailedDesChange">TaskDetailedDesChange</a></li><li><a href="global.html#TaskNameChange">TaskNameChange</a></li><li><a href="global.html#TaskNameInput">TaskNameInput</a></li><li><a href="global.html#TaskReferenceChange">TaskReferenceChange</a></li><li><a href="global.html#TaskRow">TaskRow</a></li><li><a href="global.html#TaskStringInput">TaskStringInput</a></li><li><a href="global.html#TaskTableHeader">TaskTableHeader</a></li><li><a href="global.html#TasksTable">TasksTable</a></li><li><a href="global.html#TextAreaDelayed">TextAreaDelayed</a></li><li><a href="global.html#TextInput">TextInput</a></li><li><a href="global.html#UserDummyInput">UserDummyInput</a></li><li><a href="global.html#UserSelectInteractive">UserSelectInteractive</a></li><li><a href="global.html#UserTaskInputModal">UserTaskInputModal</a></li><li><a href="global.html#UserTaskInputs">UserTaskInputs</a></li><li><a href="global.html#UserTasksFetch">UserTasksFetch</a></li><li><a href="global.html#UserTasksFetchHelper">UserTasksFetchHelper</a></li><li><a href="global.html#UserTasksQuery">UserTasksQuery</a></li><li><a href="global.html#authorizedFetch">authorizedFetch</a></li><li><a href="global.html#colorDate">colorDate</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#formatDateToYYYYMMDD">formatDateToYYYYMMDD</a></li><li><a href="global.html#minMaxDate">minMaxDate</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Jul 20 2023 00:45:19 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

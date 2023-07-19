@@ -1,28 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { v1 as uuid1 } from "uuid"
 
+//redux slice for managing state of groups
 export const groupSlice = createSlice({
     name: "groups",
     initialState: {},
     reducers: {
-        loadFromServer: (state, action) => {
-            console.log(action.payload)
-            action.payload.map(item => state[item.id] = {...item})
-            return state
-        },
         partGroupsInsert: (state, action) => {
             state = {}
-            action.payload.map(item => state[item.id] = {...item})
+            action.payload.map(item => state[item.id] = {...item}) //inserts group into state with id as key
             return state 
         },
         updateGroup: (state, action) => {
             const newItem = action.payload;
             const oldItem = state[newItem.id]
-            state[newItem.id] = {...oldItem, ...newItem}
+            state[newItem.id] = {...oldItem, ...newItem} //updates group with new item
             
             return state
         }
-
     }
 })
 
