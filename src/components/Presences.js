@@ -2,10 +2,12 @@ import { useState } from "react"
 import { UserSelectInteractive } from "./User/UserSelectInteractive"
 import { actions } from "../utils/store"
 import { GroupSelectInteractive } from "./Group/GroupSelectInteractive"
-/**Representing home component for presences assignment of school project 
+
+/**
+ * Representing home component for presences displaying task of users or users of study group
  * @function
  * @param {}
- * @returns {JSX.Element} The rendered component.
+ * @returns {JSX.Element} Select user or group depending on selected RadioButton
  */
 export const Presences = () => {
     const [selectedOption, setSelectedOption] = useState("student")
