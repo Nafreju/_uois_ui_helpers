@@ -18,7 +18,9 @@ export const UserTaskInputModal = ({showModal, setModal, user, actions}) => {
   return (
     <div>
       <Modal show={showModal} onHide={handleClose}>
-        <ModalHeader />
+        <Modal.Header closeButton>
+            <Modal.Title>Vytvořte úkol</Modal.Title>
+        </Modal.Header>
         <Modal.Body>
           <UserTaskInputs user={user} setTask={setNewTask} task={newTask}/>
         </Modal.Body>
