@@ -7,7 +7,7 @@ import { TextAreaDelayed } from "components/TextAreaDelayed";
  * @function
  * @param {string} task
  * @param {Object} actions
- * @returns 
+ * @returns {JSX.Element} - The rendered component
  */
 export const TaskDetailedDesChange = ({task, actions}) => {
     const handleChange = (value) => {

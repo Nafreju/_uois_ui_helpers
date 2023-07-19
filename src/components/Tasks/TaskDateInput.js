@@ -5,7 +5,7 @@ import { minMaxDate } from "utils/DateUtils"
  * @function
  * @param {string} info
  * @param {(event) => void}onDateChange
- * @returns 
+ * @returns {JSX.Element} - The rendered component
  */
 export const TaskDateInput = ({info, onDateChange})=> {
     const handleDateChanged = (event) => {
