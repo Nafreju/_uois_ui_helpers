@@ -42,9 +42,7 @@ export const TaskAsyncInsert = (task) => (dispatch, getState) => {
 
     return fetch('/api/gql', params)
         .then(
-            resp => {
-                resp.json()
-            }
+            resp => resp.json()
         )
         .then(
             json => {
