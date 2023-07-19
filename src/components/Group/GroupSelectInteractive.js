@@ -3,7 +3,8 @@ import { TextInput } from "../TextInput"
 import { useState } from "react"
 import ReactSelect from 'react-select';
 import { GroupTasks } from "./GroupTasks";
-/**
+/** 
+ * Representing select group
  * @param {Object} actions
  * @returns 
  */
