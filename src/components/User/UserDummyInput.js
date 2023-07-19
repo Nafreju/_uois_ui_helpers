@@ -1,9 +1,9 @@
 import { DummyInput } from "../DummyInput"
 /**
- * Representing default input
+ * Representing default input of name and surname filled in
  * @function
- * @param {string} user
- * @returns {JSX.Element} The rendered component.
+ * @param {string} props.user user which name and surname is rendered as readonly input
+ * @returns {JSX.Element} Two dummy readonly inputs next to each other
  */
 export const UserDummyInput = ({user}) => {
     return (
