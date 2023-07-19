@@ -3,7 +3,13 @@ import { TextInput } from "../TextInput"
 import {  useState } from "react"
 import ReactSelect from 'react-select';
 import { TasksTable } from "../Tasks/TasksTable";
-
+/**
+ * Representig input for finding person in database by providing at least 3 letters
+ * and selector rendering his/hers tasks.
+ * @function
+ * @param {object} actions
+ * @returns {JSX.Element} The rendered component.
+ */
 //if something is selected
 export const UserSelectInteractive = ({actions}) => {
     const users = useSelector(state => state.users)

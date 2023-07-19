@@ -3,7 +3,15 @@ import { Button, Modal, ModalHeader } from 'react-bootstrap';
 import { UserTaskInputs } from './UserTaskInputs';
 import { ButtonAddTask } from '../ButtonAddTask';
 
-
+/**
+ * Representing modal for entering a user task
+ * @function
+ * @param {bool}setModal
+ * @param {(bool)=> void}showModal
+ * @param {string} user
+ * @param {Object}actions 
+ * @returns {JSX.Element} The rendered component.
+ */
 
 export const UserTaskInputModal = ({showModal, setModal, user, actions}) => {
   const [newTask, setNewTask] = useState({userId:user.id})

@@ -2,7 +2,11 @@ import { useState } from "react"
 import { UserSelectInteractive } from "./User/UserSelectInteractive"
 import { actions } from "../utils/store"
 import { GroupSelectInteractive } from "./Group/GroupSelectInteractive"
-
+/**Representing home component for presences assignment of school project 
+ * @function
+ * @param {}
+ * @returns {JSX.Element} The rendered component.
+ */
 export const Presences = () => {
     const [selectedOption, setSelectedOption] = useState("student")
 

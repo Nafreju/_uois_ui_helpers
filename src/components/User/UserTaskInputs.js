@@ -5,7 +5,7 @@ import { UserDummyInput } from "./UserDummyInput";
  * @param {string} user
  * @param {()=> void}onTaskChange
  * @param {string} task
- * @returns 
+ * @returns {JSX.Element} The rendered component.
  */
 export const UserTaskInputs = ({user, onTaskChange, task}) => {
   return (

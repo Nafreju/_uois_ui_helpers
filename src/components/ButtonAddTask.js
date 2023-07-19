@@ -2,9 +2,11 @@
 import { useState } from "react"
 import { Button } from "react-bootstrap"
 /**
+ * Representing button for assingning task to given user on server
+ * @function 
  * @param {string} TaskDateInput
  * @param {Object} actions
- * @returns 
+ * @returns {JSX.Element} The rendered component.
  */
 
 export const ButtonAddTask = ({task, actions}) => {

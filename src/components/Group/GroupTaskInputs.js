@@ -13,7 +13,7 @@ export const GroupTaskInputs = ({group, setTask, task}) => {
     return (
         <div>
             <div style={{flex: 1, backgroundColor: 'lightblue'}}>
-                <DummyInput name="název skupiny" userName={group.name}/>
+                <DummyInput info="název skupiny" defVal={group.name}/>
             </div>
             <TaskActiveInputs setTask={setTask} task={task}/>
         </div>

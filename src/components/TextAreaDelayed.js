@@ -2,13 +2,15 @@ import { useState, useMemo, useCallback } from 'react'
 import { CreateDelayer } from 'utils/CreateDelayer'
 
 /**
- * 
- * @param {string} id
- * @param {string} value 
- * @param {(value) => void} onChange
- * @param {string} placeholder
- * @returns 
+ * Editable Text area (<textarea>)
+ * @function
+ * @param {*} id mandatory identification, often related to id of entity 
+ * @param {str} value value of input
+ * @param {str} placeholder value of help if the text is not displayed
+ * @param {(value) => void} onChange delayed callback notifying about the change
+ * @returns {JSX.Element} The rendered component.
  */
+ 
 
 export const TextAreaDelayed = ({id, value, onChange, placeholder}) => {
     const [localValue, setLocalValue] = useState(value)
