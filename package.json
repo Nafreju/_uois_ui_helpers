@@ -1,7 +1,7 @@
 {
   "name": "presences",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage": "http:///ui",
   "proxy": "http://localhost:31180/",
   "dependencies": {
@@ -55,6 +55,13 @@
   "description": "https://5d24fed056258a00204c31b6-xdlbdiewjb.chromatic.com/?path=/story/chromatic-dateinput-input--default",
   "main": "index.js",
   "devDependencies": {},
-  "author": "",
-  "license": "ISC"
+  "author": "Nafreju",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nafreju/_uois_ui_helpers.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Nafreju/_uois_ui_helpers/issues"
+  }
 }
